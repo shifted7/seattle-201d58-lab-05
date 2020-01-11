@@ -32,7 +32,7 @@ function multiply(a, b) { //eslint-disable-line
   var answer = [];
   answer[0] = a*b;
   answer[1] = 'The product of '+a+ ' and '+b+' is '+answer[0]+'.';
-  return answer
+  return answer;
 }
 
 // Here is the test for multiply(); uncomment it to run it
@@ -53,11 +53,22 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
-
+  // var answer = [];
+  // answer[0] = sum(sum(a,b)[0],c)[0];
+  // answer[1] = multiply(multiply(a, b)[0], c)[0];
+  var sum1 = sum(a,b);
+  var sum2 = sum(sum1[0], c);
+  var sumTotal = sum2[0];
+  var sumString = a +' and '+ b +' and '+ c +' sum to '+ sumTotal +'.';
+  var prod1 = multiply(a, b);
+  var prod2 = multiply(prod1[0], c);
+  var prodTotal = prod2[0];
+  var prodString = 'The product of '+ a +' and '+ b +' and '+ c +' is '+ prodTotal +'.';
+  return [sumTotal, prodTotal, sumString, prodString];
 }
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
-// testSumAndMultiply(4,7,5);
+testSumAndMultiply(4,7,5);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
